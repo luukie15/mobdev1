@@ -64,29 +64,29 @@
   
     <platform name="android">
         <!-- you can use any density that exists in the Android project -->
-        <splash src="res/screen/android/splashscreen.jpg" density="land-hdpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="land-ldpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="land-mdpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="land-xhdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="land-hdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="land-ldpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="land-mdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="land-xhdpi"/>
 
-        <splash src="res/screen/android/splashscreen.jpg" density="port-hdpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="port-ldpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="port-mdpi"/>
-        <splash src="res/screen/android/splashscreen.jpg" density="port-xhdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="port-hdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="port-ldpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="port-mdpi"/>
+        <splash src="www/res/screen/android/splashscreen.jpg" density="port-xhdpi"/>
     </platform>
 
     <platform name="ios">
         <!-- images are determined by width and height. The following are supported -->
-        <splash src="res/screen/ios/splashscreen.jpg" width="320" height="480"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="640" height="960"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="768" height="1024"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="1536" height="2048"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="1024" height="768"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="2048" height="1536"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="640" height="1136"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="750" height="1334"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="1242" height="2208"/>
-        <splash src="res/screen/ios/splashscreen.jpg" width="2208" height="1242"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="320" height="480"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="640" height="960"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="768" height="1024"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="1536" height="2048"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="1024" height="768"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="2048" height="1536"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="640" height="1136"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="750" height="1334"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="1242" height="2208"/>
+        <splash src="www/res/screen/ios/splashscreen.jpg" width="2208" height="1242"/>
     </platform>
 
     <platform name="wp8">
