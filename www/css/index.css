@@ -114,12 +114,12 @@ h1 {
 }
 
 .item_content .item{
-    height: 230px;
+    height: 400px;
 padding: 15px;
 }
 
 .item_content .item .item_info{
-    height: 200px;
+    height: 370px;
 border: 1px solid;
 border-radius: 5px;
 padding: 20px;
@@ -133,30 +133,31 @@ padding: 20px;
 
 .item_content .item .item_info .item_info_left{
     float: left;
-    height: 160px;
-    width: 50%;
+height: 340px;
+width: 50%;
 }
 
 .item_content .item .item_info .item_info_right{
     float: right;
-    height: 160px;
+    height: 330px;
     width: 45%;
 }
 
 .item_content .item .item_info .item_info_right img{
     width: 100%;
-    height: 160px;
+    height: 330px;
     float: right;
 }
 
 .item_content .item .item_info .item_info_left .item_title{
     margin-top:5px;
+    height: 50px;
 }
 
 .item_content .item .item_info .item_info_left .item_descr{
     margin-top: 15px;
-    overflow: hidden;
-    height: 120px;
+overflow: hidden;
+height: 270px;
 }
 
 #start .options .page-option{
