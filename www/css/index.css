@@ -118,17 +118,19 @@ padding: 20px;
 .item_content .item .item_info .item_info_left{
     float:left;
     height:120px;
+    width: 30%;
 }
 
 .item_content .item .item_info .item_info_right{
     float:right;
     height: 120px;
-    width: 150px;
+    width: 60%;
 }
 
 .item_content .item .item_info .item_info_right img{
     width: 150px;
     height: 120px;
+    float:right;
 }
 
 .item_content .item .item_info .item_info_left .item_title{
