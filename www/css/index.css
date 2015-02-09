@@ -101,3 +101,14 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.options{
+    //width:400px;
+    
+}
+
+#start .options .page-option{
+    height: 65px;
+    text-align: center;
+    padding-top: 50px;
+}
