@@ -24,6 +24,8 @@
             </div>
         </div>
 
+        
+
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
@@ -56,24 +58,76 @@
             {id: '2', page: "cartoons", label: "Tekenfilms", content: cartoonArray},
             {id: '3', page: "series", label: "Series", content: seriesArray});
 
+            var popupHtml = "<div data-role='popup' id='popupLogin' data-theme='a' class='ui-corner-all'><form action='index.html#movies'><div style='padding:10px 20px;'><h3>Voeg film toe</h3>\n\
+                    <input type='text' name='name_movie' id='name_movie' value='' placeholder='Naam' data-theme='a'>\n\
+                    <input type='text' name='descr_movie' id='descr_movie' value='' placeholder='Beschrijving' data-theme='a'>\n\
+                    <button type='submit' id='submit' class='ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check'>Voeg toe</button></div></form></div>";
+
             //when document is ready, do the shizzle
             $(document).ready(function () {
+                // insert html
+                fillPages();
+                // add movie button
+                $("#movies .header").append("<a href='#popupLogin' data-rel='popup' data-position-to='window' class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a' data-transition='pop'><span class='glyphicon glyphicon-plus'></span></a>");
+                // add popup html to view
+                $("#movies .item_content").append(popupHtml);
+                // the delete movie button (delete the next div(the movie) and the link to delete the movie)
+                $(".delete_movie").each(function(){
+                    $(this).click(function(){
+                        $(this).next().remove();
+                        $(this).remove();
+                    });
+                });
+                // on submit
+                $("#submit").click(function(){
+                // get name and descr, and calculate the new ID ( based on the amount of existing items )
+                var name = $("#name_movie").val();
+                var descr = $("#descr_movie").val();
+                var id = $("#movies .item_content").find("div.item").length + 1;
+                // create the delete button html
+                var deleteButton = "<button class='delete_movie'><span class='glyphicon glyphicon-remove'>"+name+"</span></button>";
+                // create the read more html
+                var readMoreHtml = "<div data-role='page' id='page_movies" + id + "' class='read_more'><div data-role='header' class='header'><h1>" + name + "</h1></div>\n\
+                    <div class='read_more_content'><div class='image_readmore'><img alt='" + name + "' src='img/movie_image.jpg'/></div>\n\
+                    <div class='read_more_text'><div class='read_more_title'>" + name + "</div><div class='read_more_descr'>" + descr + "</div></div></div>" + htmlForBackButton + "</div>";
+                // insert all html
+                $("#movies").append(deleteButton + "<div class='item' id='" + id + "'><a href='#page_movies" + id + "' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='item_info'><div class='item_info_left'>\n\
+                    <div class='item_title'>" + name + "</div><div class='item_descr'>" +descr + "</div>\n\
+                    </div><div class='item_info_right'><image alt='" + name + "' src='img/movie_image.jpg' /></div></div></a></div>");
+                $("body").append(readMoreHtml);
+                    // push to array is not neccesary because 
+//                    movieArray.push({title: "film"+id, content: "film"+id+" content", image: "img/movie_image.jpg"});
+//                    $("body").not("#start").html("");
+//                    fillPages();
+                });
+            });
+            
+            function fillPages(){
                 var linksHtml = "";
                 for (i = 0; i < dataArray.length; i++) {
                     linksHtml += "<a href='#" + dataArray[i]['page'] + "' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='nav_label'>" + dataArray[i]['label'] + "</div></a>";
+                    var contentHtml = "";
                     var headerHtml = "<div data-role='header' class='header'><h1>" + dataArray[i]['label'] + "</h1></div>";
-                    var contentHtml = "<div data-role='page' id='" + dataArray[i]['page'] + "' class='page'>" + headerHtml + "<div class='item_content'>";
-                    //console.log(dataArray[i]['content']);
+                    contentHtml += "<div data-role='page' id='" + dataArray[i]['page'] + "' class='page'>" + headerHtml + "<div class='item_content'>";
+            
                     for (a = 0; a < dataArray[i]['content'].length; a++) {
-                        contentHtml += "<div class='item' id='" + dataArray[i]['page'] + (a + 1) + "'><a href='#' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='item_info'><div class='item_info_left'>\n\
+                        var deleteButton = "";
+                        if ( dataArray[i]['page'] == "movies" ){
+                            deleteButton = "<button class='delete_movie'><span class='glyphicon glyphicon-remove'>"+dataArray[i]['content'][a]['title']+"</span></button>";
+                        }
+                        contentHtml += deleteButton+ "<div class='item' id='" + dataArray[i]['page'] + (a + 1) + "'><a href='#page_" + dataArray[i]['page'] + (a + 1) + "' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='item_info'><div class='item_info_left'>\n\
                         <div class='item_title'>" + dataArray[i]['content'][a]['title'] + "</div><div class='item_descr'>" + dataArray[i]['content'][a]['content'] + "</div>\n\
                         </div><div class='item_info_right'><image alt='" + dataArray[i]['content'][a]['title'] + "' src='" + dataArray[i]['content'][a]['image'] + "' /></div></div></a></div>";
+                        var readMoreHtml = "<div data-role='page' id='page_" + dataArray[i]['page'] + (a + 1) + "' class='read_more'><div data-role='header' class='header'><h1>" + dataArray[i]['content'][a]['title'] + "</h1></div>\n\
+                        <div class='read_more_content'><div class='image_readmore'><img alt='" + dataArray[i]['content'][a]['title'] + "' src='" + dataArray[i]['content'][a]['image'] + "'/></div>\n\
+                        <div class='read_more_text'><div class='read_more_title'>" + dataArray[i]['content'][a]['title'] + "</div><div class='read_more_descr'>" + dataArray[i]['content'][a]['content'] + "</div></div></div>" + htmlForBackButton + "</div>";
+                        $("body").append(readMoreHtml);
                     }
                     contentHtml += "</div>" + htmlForBackButton + "</div>";
                     $("body").append(contentHtml);
                 }
                 $("#nav_links").html(linksHtml);
-            });
+            }
 
         </script>
     </body>

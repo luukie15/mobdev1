@@ -104,8 +104,9 @@ h1 {
 }
 
 .page .header h1{
-    width: 270px;
-    margin-left: 40px;
+    width: 300px;
+margin: auto;
+line-height: 100px;
 }
 
 .blink {
@@ -176,3 +177,8 @@ height: 270px;
     font-size: 52px;
 }
 
+.page .item_content .delete_movie{
+    width: 150px;
+margin: auto;
+margin-top: 15px;
+}
