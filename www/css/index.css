@@ -62,7 +62,7 @@ body {
 .description{
     top: 50%;
     position: absolute;
-    left: 45%;
+    left: 25%;
 }
 
 /* Landscape layout (with min-width) */
