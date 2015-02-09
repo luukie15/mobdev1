@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
         <title>Eerste app</title>
@@ -28,6 +30,7 @@
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript">
             app.initialize();
 
@@ -46,7 +49,7 @@
             {title: "serie4", content: "serie4 content", image: "img/serie_image.jpg"});
 
             // html for the back button
-            var htmlForBackButton = "<a href='#start'>Back</a>";
+            var htmlForBackButton = "<a href='#start'><button type='button' class='btn btn-primary'>Terug</button></a>";
 
             // create the data array
             var dataArray = new Array({id: '1', page: "movies", label: "Films", content: movieArray},
@@ -59,12 +62,12 @@
                 for (i = 0; i < dataArray.length; i++) {
                     linksHtml += "<a href='#" + dataArray[i]['page'] + "' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='nav_label'>" + dataArray[i]['label'] + "</div></a>";
                     var headerHtml = "<div data-role='header' class='header'><h1>" + dataArray[i]['label'] + "</h1></div>";
-                    var contentHtml = "<div data-role='page' id=" + dataArray[i]['page'] + ">" + headerHtml + "<div class='item_content'>";
+                    var contentHtml = "<div data-role='page' id='" + dataArray[i]['page'] + "' class='page'>" + headerHtml + "<div class='item_content'>";
                     //console.log(dataArray[i]['content']);
                     for (a = 0; a < dataArray[i]['content'].length; a++) {
-                        contentHtml += "<div class='item'><div class='item_info'><div class='item_info_left'>\n\
+                        contentHtml += "<div class='item' id='" + dataArray[i]['page'] + (a + 1) + "'><a href='#' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='item_info'><div class='item_info_left'>\n\
                         <div class='item_title'>" + dataArray[i]['content'][a]['title'] + "</div><div class='item_descr'>" + dataArray[i]['content'][a]['content'] + "</div>\n\
-                        </div><div class='item_info_right'><image alt='" + dataArray[i]['content'][a]['title'] + "' src='" + dataArray[i]['content'][a]['image'] + "' /></div></div></div>";
+                        </div><div class='item_info_right'><image alt='" + dataArray[i]['content'][a]['title'] + "' src='" + dataArray[i]['content'][a]['image'] + "' /></div></div></a></div>";
                     }
                     contentHtml += "</div>" + htmlForBackButton + "</div>";
                     $("body").append(contentHtml);

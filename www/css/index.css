@@ -16,7 +16,7 @@ body {
         left bottom,
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
-    );
+        );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -38,7 +38,7 @@ body {
     text-align:center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    /* offset horizontal: half of text area width */
 }
 
 .description{
@@ -53,7 +53,7 @@ body {
         background-position:left center;
         padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
         margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
+        /* offset horizontal: half of image width and text area width */
     }
 }
 
@@ -90,47 +90,63 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
+.header{
+    height: 150px;
+    font-size: 40px;
+    line-height: 100px;
+}
+
+.page .header h1{
+    width: 270px;
+    margin-left: 40px;
+}
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
 
 .item_content .item{
-    height: 150px;
+    height: 230px;
 padding: 15px;
 }
 
 .item_content .item .item_info{
-height: 110px;
+    height: 200px;
 border: 1px solid;
 border-radius: 5px;
 padding: 20px;
 
 }
 
+.item a{
+    padding: 0px;
+    margin: 0px;
+}
+
 .item_content .item .item_info .item_info_left{
-    float:left;
-    height:120px;
-    width: 30%;
+    float: left;
+    height: 160px;
+    width: 50%;
 }
 
 .item_content .item .item_info .item_info_right{
-    float:right;
-    height: 120px;
-    width: 60%;
+    float: right;
+    height: 160px;
+    width: 45%;
 }
 
 .item_content .item .item_info .item_info_right img{
-    width: 150px;
-    height: 120px;
-    float:right;
+    width: 100%;
+    height: 160px;
+    float: right;
 }
 
 .item_content .item .item_info .item_info_left .item_title{
@@ -138,7 +154,9 @@ padding: 20px;
 }
 
 .item_content .item .item_info .item_info_left .item_descr{
-    margin-top:15px;
+    margin-top: 15px;
+    overflow: hidden;
+    height: 120px;
 }
 
 #start .options .page-option{
