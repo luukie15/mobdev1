@@ -17,61 +17,11 @@
     </head>
     <body>
         <div data-role="page" id="start">
-            <div data-role="main" class="ui-content options">
-                <a href="#pageone" class="ui-btn ui-shadow ui-corner-all page-option">
-                    <div class="nav_label">Films</div>
-                </a>
-                <a href="#pagetwo" class="ui-btn ui-shadow ui-corner-all page-option">
-                    <div class="nav_label">Series</div>
-                </a>
-                <a href="#pagethree" class="ui-btn ui-shadow ui-corner-all page-option"
-                   ><div class="nav_label">Tekenfilms</div>
-                </a>
+            <div data-role="main" class="ui-content options" id="nav_links">
+
             </div>
         </div>
-        <div data-role="page" id="pageone">
-            <div data-role="header">
-                <h1>Welcome To My Homepage</h1>
-            </div>
 
-            <div data-role="main" class="ui-content">
-                <p>Welcome! If you click on the link below, it will take you to Page Two.</p>
-                <a href="#start">Back</a>
-            </div>
-
-            <div data-role="footer">
-                <h1>Footer Text</h1>
-            </div>
-        </div> 
-
-        <div data-role="page" id="pagetwo">
-            <div data-role="header">
-                <h1>Welcome To My Homepage</h1>
-            </div>
-
-            <div data-role="main" class="ui-content">
-                <p>This is Page Two. If you click on the link below, it will take you to Page One.</p>
-                <a href="#start">Back</a>
-            </div>
-
-            <div data-role="footer">
-                <h1>Footer Text</h1>
-            </div>
-        </div> 
-        <div data-role="page" id="pagethree">
-            <div data-role="header">
-                <h1>Welcome To My Homepage</h1>
-            </div>
-
-            <div data-role="main" class="ui-content">
-                <p>Welcome! If you click on the link below, it will take you to Page Two.</p>
-                <a href="#start">Back</a>
-            </div>
-
-            <div data-role="footer">
-                <h1>Footer Text</h1>
-            </div>
-        </div> 
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
@@ -80,6 +30,48 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+
+            // creating data arrays
+            var movieArray = new Array({title: "film1", content: "film1 content", image: "img/movie_image.jpg"},
+            {title: "film2", content: "film2 content", image: "img/movie_image.jpg"},
+            {title: "film3", content: "film3 content", image: "img/movie_image.jpg"},
+            {title: "film4", content: "film4 content", image: "img/movie_image.jpg"});
+            var cartoonArray = new Array({title: "cartoon1", content: "cartoon1 content", image: "img/cartoon_image.jpg"},
+            {title: "cartoon2", content: "cartoon2 content", image: "img/cartoon_image.jpg"},
+            {title: "cartoon3", content: "cartoon3 content", image: "img/cartoon_image.jpg"},
+            {title: "cartoon4", content: "cartoon4 content", image: "img/cartoon_image.jpg"});
+            var seriesArray = new Array({title: "serie1", content: "serie1 content", image: "img/serie_image.jpg"},
+            {title: "serie2", content: "serie2 content", image: "img/serie_image.jpg"},
+            {title: "serie3", content: "serie3 content", image: "img/serie_image.jpg"},
+            {title: "serie4", content: "serie4 content", image: "img/serie_image.jpg"});
+
+            // html for the back button
+            var htmlForBackButton = "<a href='#start'>Back</a>";
+
+            // create the data array
+            var dataArray = new Array({id: '1', page: "movies", label: "Films", content: movieArray},
+            {id: '2', page: "cartoons", label: "Tekenfilms", content: cartoonArray},
+            {id: '3', page: "series", label: "Series", content: seriesArray});
+
+            //when document is ready, do the shizzle
+            $(document).ready(function () {
+                var linksHtml = "";
+                for (i = 0; i < dataArray.length; i++) {
+                    linksHtml += "<a href='#" + dataArray[i]['page'] + "' data-transition='pop' class='ui-btn ui-shadow ui-corner-all page-option'><div class='nav_label'>" + dataArray[i]['label'] + "</div></a>";
+                    var headerHtml = "<div data-role='header' class='header'><h1>" + dataArray[i]['label'] + "</h1></div>";
+                    var contentHtml = "<div data-role='page' id=" + dataArray[i]['page'] + ">" + headerHtml + "<div class='item_content'>";
+                    //console.log(dataArray[i]['content']);
+                    for (a = 0; a < dataArray[i]['content'].length; a++) {
+                        contentHtml += "<div class='item'><div class='item_info'><div class='item_info_left'>\n\
+                        <div class='item_title'>" + dataArray[i]['content'][a]['title'] + "</div><div class='item_descr'>" + dataArray[i]['content'][a]['content'] + "</div>\n\
+                        </div><div class='item_info_right'><image alt='" + dataArray[i]['content'][a]['title'] + "' src='" + dataArray[i]['content'][a]['image'] + "' /></div></div></div>";
+                    }
+                    contentHtml += "</div>" + htmlForBackButton + "</div>";
+                    $("body").append(contentHtml);
+                }
+                $("#nav_links").html(linksHtml);
+            });
+
         </script>
     </body>
 </html>

@@ -102,15 +102,46 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.options{
-    //margin-top: 70px;
-    
+.item_content .item{
+    height: 150px;
+padding: 15px;
+}
+
+.item_content .item .item_info{
+height: 110px;
+border: 1px solid;
+border-radius: 5px;
+padding: 20px;
+
+}
+
+.item_content .item .item_info .item_info_left{
+    float:left;
+    height:120px;
+}
+
+.item_content .item .item_info .item_info_right{
+    float:right;
+    height: 120px;
+    width: 150px;
+}
+
+.item_content .item .item_info .item_info_right img{
+    width: 150px;
+    height: 120px;
+}
+
+.item_content .item .item_info .item_info_left .item_title{
+    margin-top:5px;
+}
+
+.item_content .item .item_info .item_info_left .item_descr{
+    margin-top:15px;
 }
 
 #start .options .page-option{
     height: 250px;
     text-align: center;
-    //padding-top: 50px;
 }
 
 #start .options .page-option .nav_label{
@@ -123,3 +154,4 @@ h1 {
 #start .options .page-option .nav_label label{
     font-size: 52px;
 }
+
