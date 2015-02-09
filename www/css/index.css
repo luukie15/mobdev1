@@ -103,12 +103,23 @@ h1 {
 }
 
 .options{
-    margin-top: 70px;
+    //margin-top: 70px;
     
 }
 
 #start .options .page-option{
     height: 250px;
     text-align: center;
-    padding-top: 50px;
+    //padding-top: 50px;
+}
+
+#start .options .page-option .nav_label{
+    width: 100%;
+    font-size: 52px;
+    height: 245px;
+    line-height: 245px;
+}
+
+#start .options .page-option .nav_label label{
+    font-size: 52px;
 }
